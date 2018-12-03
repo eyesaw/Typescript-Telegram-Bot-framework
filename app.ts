@@ -1,39 +1,48 @@
-import * as telegramBot from 'node-telegram-bot-api';
+import * as TelegramBot from 'node-telegram-bot-api';
 
-class weidner_bot
+class Bot_Of_Doom
 {
   readonly token:string = '';
-  readonly bot:any = new telegramBot( this.token, {polling: true});
+  readonly bot:any = new TelegramBot( this.token, {polling: true});
 
   constructor()
   {
-    this.bot.onText(/\/bot (.+)/,function (msg, match) {
-      this.parse(msg,match);
+    var _ = this;
+
+    this.bot.onText(/\/(.+)/,function (user, match) {
+      _.parse(user,match);
     });
   }
 
-  private parse( message, match )
+    /**
+     * @param user
+     * @param match (0 - full input / 1 - matching phrase )
+     */
+
+  public parse( user, match )
   {
+    // ‌‌( match[1].localeCompare('‌tagesgericht') ) === 0
+    switch( match[1] )
+    {
+      case "‌tagesgericht":
+        this.send_message(user, '[*] loading');
 
-    console.log(message);
-    console.log(match);
+        // PDF API generieren
+        // API anfragen
+        // Informationen senden
 
-      switch(match)
-      {
-        case 'Tagesgericht':
-          // PDF API gernieren
-          // API anfragen
-          // Informationen senden
+        this.send_message(user, '[+] done');
+        break;
 
-          this.send_message(message);
-          break;
-      };
+      default:
+          this.send_message(user, 'invalid argument');
+    }
   }
 
-  private send_message(message)
+  private send_message(user:any, message:string)
   {
-    this.bot.sendMessage( message.chat.id, 'kek' );
+    this.bot.sendMessage( user.chat.id, message );
   }
 }
 
-var kek = new weidner_bot();
+var init = new Bot_Of_Doom();
