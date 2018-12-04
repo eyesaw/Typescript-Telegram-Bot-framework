@@ -7,4 +7,4 @@ theTelegramBotOfDoom is a nodejs (build with typescript) "framework" to create e
 To get a local copy of the current code, clone it using git:
 
     $ git clone https://github.com/NeumannTom/theTelegramBotofDoom
-    $ cd pdf.js
+    $ cd theTelegramBotOfDoom
