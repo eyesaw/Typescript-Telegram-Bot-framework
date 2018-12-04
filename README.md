@@ -1,4 +1,4 @@
-# theTelegramBotOfDoom [![stability][0]][1]
+# theTelegramBotOfDoom
 theTelegramBotOfDoom is a nodejs (build with typescript) "framework" to create easily Telegram Bots
 
 ## Getting Started
