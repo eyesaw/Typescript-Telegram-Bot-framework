@@ -11,9 +11,18 @@ var config = {
       return int;
     },
     message: 'kek'
+  },
+
+  [1]:{
+    token:'kek',
+    callback: function() {
+      let int = 99;
+      return int;
+    },
+    message: 'nix'
   }
 
 };
 
 // init instance with token
-const bot_of_doom = new Bot_Of_Doom( 'YOUR:::KEY', config );
+const bot_of_doom = new Bot_Of_Doom( 'YOUR::KEY', config );

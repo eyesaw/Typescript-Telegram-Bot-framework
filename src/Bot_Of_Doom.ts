@@ -30,21 +30,25 @@ export default class Bot_Of_Doom
   {
     let _ = this;
 
-    // loop trough the config
-    for ( let key in this.config )
+    for ( var i = 0; i < Object.keys( this.config ).length; i++ )
     {
 
-      // try to compare the input with the config token
-      if( match[1].localeCompare( _.config[key].token ) === 0 )
+      if( match[1].localeCompare( _.config[i].token ) === 0 )
       {
-        // call the config function
+
         // Todo: process and send callback
-        this.config[key].callback();
+        if( typeof this.config[i].callback( ) !== undefined ){
+            _.send_message( user, this.config[i].callback( user ) );
+        }
 
         // send the message
-        this.parse( user, this.config[key].message );
+        if( _.config[i].message ) {
+            _.send_message( user, _.config[i].message );
+        }
+
+        return;
       }
-    }
+    };
 
     // default messege when the arguments are invalid or could not be found
     this.send_message(user, '[-] argument not found: ' + match[1] );
@@ -52,6 +56,8 @@ export default class Bot_Of_Doom
 
   /**
   * Send the message
+  * // TODO: process data types
+  * https://core.telegram.org/bots/api#sendphoto
   */
 
   private send_message(user:any, message:string)
