@@ -2,27 +2,16 @@
 import Bot_Of_Doom from './src/Bot_Of_Doom';
 
 // setup the config
-var config = {
-
-  [0]:{
+var config = [
+  {
     token:'tagesgericht',
-    callback: function() {
-      let int = 5;
-      return int;
-    },
-    message: 'kek'
-  },
+    type: 'sendMessage',
+    callback: function( user ) {
 
-  [1]:{
-    token:'kek',
-    callback: function() {
-      let int = 99;
-      return int;
-    },
-    message: 'nix'
+      return { chat_id: user.chat.id, text: 'asd' };
+    }
   }
-
-};
+];
 
 // init instance with token
-const bot_of_doom = new Bot_Of_Doom( 'YOUR::KEY', config );
+const bot_of_doom = new Bot_Of_Doom( 'YOUR_TOKEN', config );
