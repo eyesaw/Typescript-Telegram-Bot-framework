@@ -1,4 +1,3 @@
-// require class
 import Bot_Of_Doom from './src/Bot_Of_Doom';
 
 // setup the config
@@ -12,5 +11,5 @@ var config = [
   }
 ];
 
-// init instance with token
+// init instance with your Telegram API key
 new Bot_Of_Doom( 'YOUR::KEY', config );
