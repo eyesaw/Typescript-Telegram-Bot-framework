@@ -14,4 +14,4 @@ var config = [
 ];
 
 // init instance with token
-const bot_of_doom = new Bot_Of_Doom( 'YOUR_TOKEN', config );
+new Bot_Of_Doom( 'YOUR::KEY', config );
