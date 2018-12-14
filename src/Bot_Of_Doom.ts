@@ -9,6 +9,35 @@ interface Config {
      };
 }
 
+interface Callback {
+    chat_id: any;
+    text?: any;
+    parse_mode?: any;
+    disable_web_page_preview?: any;
+    disable_notification?: any;
+    reply_to_message_id?: any;
+    reply_markup?: any;
+    audio?: any;
+    caption?: any;
+    duration?: any;
+    performer?: any;
+    title?: any;
+    thumb?: any;
+    document?: any;
+    video?: any;
+    width?: any;
+    height?: any;
+    supports_streaming?: any;
+    animation?: any;
+    voice?: any;
+    video_note?: any;
+    length?: any;
+    media?: any;
+    latitude?: any;
+    longitude?: any;
+    live_period?: any;
+}
+
 export default class Bot_Of_Doom
 {
 
@@ -45,16 +74,15 @@ export default class Bot_Of_Doom
         _.send_message( this.config[i].callback( user ), this.config[i].type );
         return;
       }
-    };
+    }
   }
 
   /**
   * Send the message
-  * // TODO: process data types
   * https://core.telegram.org/bots/api#sendphoto
   */
 
-  private send_message( callback:any, type:string )
+  private send_message( callback: Callback, type:string )
   {
     switch(type)
     {
