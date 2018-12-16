@@ -1,4 +1,4 @@
-import Bot_Of_Doom from './src/Bot_Of_Doom';
+import Bot_Core from './src/Bot_Core';
 
 // setup the config
 var config = [
@@ -12,4 +12,4 @@ var config = [
 ];
 
 // init instance with your Telegram API key
-new Bot_Of_Doom( 'YOUR::KEY', config );
+new Bot_Core( 'YOUR::KEY', config );
