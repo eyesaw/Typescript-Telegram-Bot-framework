@@ -4,8 +4,7 @@ import Bot_Core from './src/Bot_Core';
 var config = [
   {
     token: 'example',
-    type: 'sendMessage',
-    callback: function( user ) {
+    callback: function( user, bot ) {
       return { chat_id: user.chat.id, text: 'Hello world' };
     }
   }

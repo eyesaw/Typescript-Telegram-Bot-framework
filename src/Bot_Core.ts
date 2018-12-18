@@ -4,38 +4,8 @@ import * as TelegramBot from 'node-telegram-bot-api';
 interface Config {
     [ index: number ]: {
       token: string;
-      type: string;
       callback: any;
      };
-}
-
-interface Callback {
-    chat_id: any;
-    text?: any;
-    parse_mode?: any;
-    disable_web_page_preview?: any;
-    disable_notification?: any;
-    reply_to_message_id?: any;
-    reply_markup?: any;
-    audio?: any;
-    caption?: any;
-    duration?: any;
-    performer?: any;
-    title?: any;
-    thumb?: any;
-    document?: any;
-    video?: any;
-    width?: any;
-    height?: any;
-    supports_streaming?: any;
-    animation?: any;
-    voice?: any;
-    video_note?: any;
-    length?: any;
-    media?: any;
-    latitude?: any;
-    longitude?: any;
-    live_period?: any;
 }
 
 export default class Bot_Core
@@ -71,7 +41,7 @@ export default class Bot_Core
     {
       if( match[1].localeCompare( _.config[i].token ) === 0 )
       {
-        _.send_message( this.config[i].callback( user ), this.config[i].type );
+        this.config[i].callback( user, this.bot );
         return;
       }
     }
